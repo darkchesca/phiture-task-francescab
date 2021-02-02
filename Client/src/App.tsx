@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
-import {Button} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import {getHello} from "./api/api";
+import {NavbarCustom} from '../src/components/Navbar/Navbar';
 
 function App() {
     const {t} = useTranslation()
@@ -23,8 +23,8 @@ function App() {
     })
     return (
         <div>
+            <NavbarCustom/>
             <span>{hello ? hello : "Not hello"}</span>
-            <Button variant="outline-secondary">{t('main.test')}</Button>
         </div>
 
     );
