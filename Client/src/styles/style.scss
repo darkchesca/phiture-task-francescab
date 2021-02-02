@@ -1,0 +1,110 @@
+@import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.app-header {
+  @include flex-center();
+  font-size: x-large;
+  padding: 10px;
+  font-family: $app-main-font;
+  background: map_get($green-colors, dark-slate-grey);
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  //background: map_get($green-colors, celadon);
+
+  .search-players-container {
+    padding: 20px;
+  }
+
+  .build-team-container {
+    padding: 20px;
+  }
+
+  .container-span-title {
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  .search-input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.app-button {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 9px 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: map_get($gray-colors, dark-gray);
+  }
+}
+
+.app-input {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  padding: .65rem;
+  line-height: 1;
+  font-size: 1rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.app-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.app-dropdown {
+  color: map_get($blue-colors, bright-blue) !important;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  background: none;
+  margin-left: 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+  }
+}
+
+
