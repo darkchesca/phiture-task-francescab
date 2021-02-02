@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.scss';
-import {useTranslation} from "react-i18next";
-import {getHello} from "./api/api";
+//import {useTranslation} from "react-i18next";
+//import {getHello} from "./api/api";
 import {NavbarCustom} from '../src/components/Navbar/Navbar';
 
 function App() {
-    const {t} = useTranslation()
+    /*const {t} = useTranslation()
     let [hello, setHello] = useState('');
 
     async function getH() {
@@ -20,11 +20,11 @@ function App() {
     useEffect(() => {
         getH();
 
-    })
+    })*/
     return (
         <div>
             <NavbarCustom/>
-            <span>{hello ? hello : "Not hello"}</span>
+            {/*<span>{hello ? hello : "Not hello"}</span>*/}
         </div>
 
     );

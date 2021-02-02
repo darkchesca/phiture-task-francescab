@@ -1,5 +1,13 @@
 {
   "main": {
-    "test": "Test translation"
+    "title": "Phi-fa 19"
+  },
+  "searchPlayers": {
+    "type": "Type something",
+    "find": "Find",
+    "searchBy": "Search By",
+    "name": "Name",
+    "nationality": "Nationality",
+    "club": "Club"
   }
 }
