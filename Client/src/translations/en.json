@@ -9,6 +9,13 @@
     "name": "Name",
     "nationality": "Nationality",
     "club": "Club",
-    "formTitle": "Search players.."
+    "formTitle": "Search players..",
+    "errorTitle": "Error",
+    "errorBody": "There was a problem with the search",
+    "notFound": "Ups we couldn't find any players, try again",
+    "nothingToSee": "Nothing to see here.."
+  },
+  "buildTeam": {
+    "lowBudget": "Sorry mate you cannot afford anything with that"
   }
 }
