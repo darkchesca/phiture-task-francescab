@@ -2,9 +2,17 @@
 @import "./src/styles/variables";
 
 .search-players-view {
-  @include flex-center();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   .search-players-view_form {
     padding: 20px;
+    text-align: center;
+
+    .search-players-view_form-title {
+      padding-bottom: 10px;
+    }
   }
 }

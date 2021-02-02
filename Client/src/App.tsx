@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import './styles/style.scss';
 //import {useTranslation} from "react-i18next";
 //import {getHello} from "./api/api";
 import {NavbarCustom} from '../src/components/Navbar/Navbar';
@@ -22,7 +23,7 @@ function App() {
 
     })*/
     return (
-        <div>
+        <div className="App">
             <NavbarCustom/>
             {/*<span>{hello ? hello : "Not hello"}</span>*/}
         </div>
