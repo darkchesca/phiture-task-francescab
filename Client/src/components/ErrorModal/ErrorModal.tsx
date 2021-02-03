@@ -5,14 +5,15 @@ interface Props {
     showModal: boolean;
     title: string;
     content: string;
+    onHide: () => void;
 
 }
 
-export const ErrorModal: React.FC<Props> = ({showModal, title, content}) => {
+export const ErrorModal: React.FC<Props> = ({showModal, title, content, onHide}) => {
 
     return (
         <div>
-            <Modal show={showModal}>
+            <Modal show={showModal} onHide={onHide} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>{title}</Modal.Title>
                 </Modal.Header>

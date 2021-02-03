@@ -11,8 +11,9 @@
     "club": "Club",
     "formTitle": "Search players..",
     "errorTitle": "Error",
-    "errorBody": "There was a problem with the search",
-    "notFound": "Ups we couldn't find any players, try again",
+    "errorContent": "There was a problem with the search",
+    "notFoundTitle": "Upsy",
+    "notFoundContent": "We couldn't find any players, try again",
     "nothingToSee": "Nothing to see here.."
   },
   "buildTeam": {

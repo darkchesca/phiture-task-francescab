@@ -15,6 +15,9 @@ export const SearchPlayers: React.FC = () => {
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
     let [players, setPlayers] = useState([]);
+    let [modalTitle, setModalTitle] = useState("");
+    let [modalContent, setModalContent] = useState("");
+
     let searchBy = useRef(null);
     let inputValue = useRef(null);
 
@@ -22,6 +25,7 @@ export const SearchPlayers: React.FC = () => {
     function onSubmitSearch(event: any) {
         // setLoading(true);
         const form = event.currentTarget;
+        //todo add validation: min characters 3
         /*if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
@@ -34,6 +38,21 @@ export const SearchPlayers: React.FC = () => {
 
         //add api here
         //seLoading(false)
+        try {
+            const resp: [] = []; //await
+            if (!resp.length) {
+                setModalTitle(t('searchPlayers.notFoundTitle'));
+                setModalContent(t('searchPlayers.notFoundContent'));
+                setError(true);
+            } else {
+                setPlayers(resp);
+            }
+
+        } catch (e) {
+            setModalTitle(t('searchPlayers.errorTitle'));
+            setModalContent(t('searchPlayers.errorBody'));
+            setError(true);
+        }
     }
 
     return (
@@ -74,8 +93,11 @@ export const SearchPlayers: React.FC = () => {
                     loading
                         ? <LoadingModal/>
                         : error
-                        ? <ErrorModal content={t('searchPlayers.notFound')} showModal={error}
-                                      title={t('searchPlayers.notFound')}>Error Modal</ErrorModal>
+                        ? <ErrorModal
+                            title={modalTitle}
+                            content={modalContent}
+                            showModal={error}
+                            onHide={() => setError(false)}>Error Modal</ErrorModal>
                         : players.length
                             ? <span>Table</span>
                             : <span>{t('searchPlayers.nothingToSee')}</span>
