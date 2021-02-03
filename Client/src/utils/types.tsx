@@ -8,4 +8,5 @@ export interface Player {
     Overall: number;
     Club: string;
     Position: string;
+    Value: string;
 }
