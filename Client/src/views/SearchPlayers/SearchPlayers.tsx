@@ -9,12 +9,27 @@ import Button from "react-bootstrap/Button";
 //other imports
 import './SearchPlayers.scss';
 import './../../styles/style.scss';
+import Table from "react-bootstrap/cjs/Table";
+import {mockPlayersList} from "../../utils/utils";
+import {Player} from "../../utils/types";
+import logo from './../../logo.png';
+
+const tableHeader = [
+    "Photo",
+    "Name",
+    "Age",
+    "Nationality",
+    "Club",
+    "Overall",
+    "Value",
+]
+
 
 export const SearchPlayers: React.FC = () => {
     const {t} = useTranslation();
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
-    let [players, setPlayers] = useState([]);
+    let [players, setPlayers] = useState<Array<Player>>();
     let [modalTitle, setModalTitle] = useState("");
     let [modalContent, setModalContent] = useState("");
 
@@ -36,18 +51,24 @@ export const SearchPlayers: React.FC = () => {
         console.log(by);
         console.log(tx);
 
-        //add api here
+        //todo complete api
         try {
             const resp: [] = []; //await
-            if (!resp.length) { // if resp is empty -> show modal with no result content
+            /*if (!resp.length) { // if resp is empty -> show modal with no result content
                 setModalTitle(t('searchPlayers.notFoundTitle'));
                 setModalContent(t('searchPlayers.notFoundContent'));
                 setLoading(false);
                 setError(true);
             } else { // if resp not empty built table
-                setPlayers(resp);
+                //setPlayers(resp);
+                console.log(players)
+                setPlayers(mockPlayersList.data); //
                 setLoading(false);
-            }
+                console.log(players)
+            }*/
+
+            setPlayers(mockPlayersList.data);
+            setLoading(false);
 
         } catch (e) { // if error -> show modal with error content
             setModalTitle(t('searchPlayers.errorTitle'));
@@ -101,8 +122,38 @@ export const SearchPlayers: React.FC = () => {
                             content={modalContent}
                             showModal={error}
                             onHide={() => setError(false)}>Error Modal</ErrorModal>
-                        : players.length
-                            ? <span>Table</span>
+                        : players != undefined && players.length
+                            ? <Table responsive={true} striped bordered hover variant="dark">
+                                <thead>
+                                <tr>
+                                    {tableHeader.map((h) => {
+                                        return <th key={h}>{h}</th>
+                                    })}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {
+                                    mockPlayersList.data.map(p => {
+                                        return <tr key={p.ID}>
+                                            <td>
+                                                <img
+                                                    //src={p["Photo"]} //todo find alternative
+                                                    src={logo}
+                                                    alt={p["Name"]}
+                                                    className="app-logo"
+                                                />
+                                            </td>
+                                            <td>{p["Name"]}</td>
+                                            <td>{p["Age"]}</td>
+                                            <td>{p["Nationality"]}</td>
+                                            <td>{p["Club"]}</td>
+                                            <td>{p["Overall"]}</td>
+                                            <td>{p["Value"]}</td>
+                                        </tr>
+                                    })
+                                }
+                                </tbody>
+                            </Table>
                             : <span>{t('searchPlayers.nothingToSee')}</span>
                 }
             </div>

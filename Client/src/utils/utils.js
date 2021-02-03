@@ -1,0 +1,112 @@
+export const mockPlayersList = {
+    data: [
+        {
+            "Original Index": 0,
+            "ID": 158023,
+            "Name": "L. Messi",
+            "Age": 31,
+            "Photo": "https://cdn.sofifa.org/players/4/19/158023.png",
+            "Nationality": "Argentina",
+            "Overall": 94,
+            "Club": "FC Barcelona",
+            "Value": "€110.5M",
+            "Position": "RF",
+        },
+        {
+            "Original Index": 1,
+            "ID": 20801,
+            "Name": "Cristiano Ronaldo",
+            "Age": 33,
+            "Photo": "https://cdn.sofifa.org/players/4/19/20801.png",
+            "Nationality": "Portugal",
+            "Overall": 94,
+            "Club": "Juventus",
+            "Value": "€77M",
+            "Position": "RF",
+        },
+        {
+            "Original Index": 2,
+            "ID": 190871,
+            "Name": "Neymar Jr",
+            "Age": 26,
+            "Photo": "https://cdn.sofifa.org/players/4/19/190871.png",
+            "Nationality": "Brazil",
+            "Overall": 92,
+            "Club": "Paris Saint-Germain",
+            "Value": "€118.5M",
+            "Position": "LW"
+        },
+        {
+            "Original Index": 3,
+            "ID": 193080,
+            "Name": "De Gea",
+            "Age": 27,
+            "Photo": "https://cdn.sofifa.org/players/4/19/193080.png",
+            "Nationality": "Spain",
+            "Overall": 91,
+            "Club": "Manchester United",
+            "Value": "€72M",
+            "Position": "GK"
+        },
+        {
+            "Original Index": 4,
+            "ID": 192985,
+            "Name": "K. De Bruyne",
+            "Age": 27,
+            "Photo": "https://cdn.sofifa.org/players/4/19/192985.png",
+            "Nationality": "Belgium",
+            "Overall": 91,
+            "Club": "Manchester City",
+            "Value": "€102M",
+            "Position": "RCM"
+        },
+        {
+            "Original Index": 5,
+            "ID": 183277,
+            "Name": "E. Hazard",
+            "Age": 27,
+            "Photo": "https://cdn.sofifa.org/players/4/19/183277.png",
+            "Nationality": "Belgium",
+            "Overall": 91,
+            "Club": "Chelsea",
+            "Value": "€93M",
+            "Position": "RCM"
+        },
+        {
+            "Original Index": 6,
+            "ID": 177003,
+            "Name": "L. Modrić",
+            "Age": 32,
+            "Photo": "https://cdn.sofifa.org/players/4/19/177003.png",
+            "Nationality": "Croatia",
+            "Overall": 91,
+            "Club": "Real Madrid",
+            "Value": "€67M",
+            "Position": "RCM"
+        },
+        {
+            "Original Index": 7,
+            "ID": 176580,
+            "Name": "L. Suárez",
+            "Age": 31,
+            "Photo": "https://cdn.sofifa.org/players/4/19/176580.png",
+            "Nationality": "Uruguay",
+            "Overall": 91,
+            "Club": "FC Barcelona",
+            "Value": "€80M",
+            "Position": "RS"
+        },
+        {
+            "Original Index": 8,
+            "ID": 155862,
+            "Name": "Sergio Ramos",
+            "Age": 32,
+            "Photo": "https://cdn.sofifa.org/players/4/19/155862.png",
+            "Nationality": "Spain",
+            "Overall": 91,
+            "Club": "Real Madrid",
+            "Value": "€51M",
+            "Position": "RCB"
+        }
+    ]
+}
