@@ -9,6 +9,7 @@ export const LoadingModal: React.FC = () => {
             <img
                 src={ball}
                 className="loading-modal-img"
+                alt="Loading..."
             />
         </div>
     );

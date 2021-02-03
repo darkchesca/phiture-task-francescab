@@ -6,16 +6,18 @@ import Button from "react-bootstrap/Button";
 //components
 import {LoadingModal} from "../../components/LoadingModal/LoadingModal";
 import {ErrorModal} from "../../components/ErrorModal/ErrorModal";
+import {PlayerCard} from "../../components/PlayerCard/PlayerCard";
 //other
 import './BuildTeam.scss';
 import './../../styles/style.scss';
-import {PlayerCard} from "../../components/PlayerCard/PlayerCard";
+import {mockTeam} from "../../utils/mocks";
+import {Team} from "../../utils/interfaces/Team";
 
 export const BuildTeam: React.FC = () => {
     const {t} = useTranslation();
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
-    let [team, setTeam] = useState({});
+    let [team, setTeam] = useState<Team>(); // team of type Team
     let [modalTitle, setModalTitle] = useState("");
     let [modalContent, setModalContent] = useState("");
     let [budget, setBudget] = useState(0);
@@ -35,7 +37,6 @@ export const BuildTeam: React.FC = () => {
             return
         }
         setBudget(budget);
-
         //else ->
         //setLoading(true);
         //getAllPlayers api
@@ -52,6 +53,9 @@ export const BuildTeam: React.FC = () => {
             setError(true);
             setLoading(false);
         }
+
+        //todo replace with real data
+        setTeam(mockTeam);
     }
 
     return (
@@ -86,28 +90,28 @@ export const BuildTeam: React.FC = () => {
                             content={modalContent}
                             showModal={error}
                             onHide={() => setError(false)}>Error Modal</ErrorModal>
-                        : team !== {} // team not empty
+                        : team // team not empty
                             ? <div className="build-team-view_grid-result">
                                 <h5>{t('buildTeam.resultTitle', {budget: budget})}</h5>
                                 <div className="build-team-view_grid-result-team">
                                     <div className="players-row">
-                                        <PlayerCard name="Name" position="Keeper"/>
+                                        <PlayerCard name={team.goalKeeper["Name"]} position="Keeper"/>
                                     </div>
                                     <div className="players-row">
-                                        <PlayerCard name="Name" position="Fullback1"/>
-                                        <PlayerCard name="Name" position="Fullback2"/>
+                                        <PlayerCard name={team.fullback1["Name"]} position="Fullback 1"/>
+                                        <PlayerCard name={team.fullback2["Name"]} position="Fullback 2"/>
                                     </div>
                                     <div className="players-row">
-                                        <PlayerCard name="Name" position="Halfback1"/>
-                                        <PlayerCard name="Name" position="Halfback2"/>
-                                        <PlayerCard name="Name" position="Halfback3"/>
+                                        <PlayerCard name={team.halfback1["Name"]} position="Halfback 1"/>
+                                        <PlayerCard name={team.halfback2["Name"]} position="Halfback 2"/>
+                                        <PlayerCard name={team.halfback3["Name"]} position="Halfback 3"/>
                                     </div>
                                     <div className="players-row">
-                                        <PlayerCard name="Name" position="Forward1"/>
-                                        <PlayerCard name="Name" position="Forward2"/>
-                                        <PlayerCard name="Name" position="Forward3"/>
-                                        <PlayerCard name="Name" position="Forward4"/>
-                                        <PlayerCard name="Name" position="Forward5"/>
+                                        <PlayerCard name={team.forward1["Name"]} position="Forward 1"/>
+                                        <PlayerCard name={team.forward2["Name"]} position="Forward 2"/>
+                                        <PlayerCard name={team.forward3["Name"]} position="Forward 3"/>
+                                        <PlayerCard name={team.forward4["Name"]} position="Forward 4"/>
+                                        <PlayerCard name={team.forward5["Name"]} position="Forward 5"/>
                                     </div>
                                 </div>
                             </div>
