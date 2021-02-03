@@ -1,0 +1,18 @@
+@import "./src/styles/mixins";
+@import "./src/styles/variables";
+
+.build-team-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .build-team-view_form {
+    padding: 20px;
+    text-align: center;
+
+    .build-team-view_form-title {
+      padding-bottom: 10px;
+    }
+  }
+}

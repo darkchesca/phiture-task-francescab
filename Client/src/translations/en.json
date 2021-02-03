@@ -3,20 +3,25 @@
     "title": "Phi-fa 19"
   },
   "searchPlayers": {
-    "write": "Type something",
+    "club": "Club",
     "find": "Find",
-    "searchBy": "Search By",
+    "errorContent": "There was a problem with the search",
+    "errorTitle": "Error",
+    "formTitle": "Search players by..",
     "name": "Name",
     "nationality": "Nationality",
-    "club": "Club",
-    "formTitle": "Search players by..",
-    "errorTitle": "Error",
-    "errorContent": "There was a problem with the search",
-    "notFoundTitle": "Upsy",
     "notFoundContent": "We couldn't find any players, try again",
-    "nothingToSee": "Nothing to see here.."
+    "notFoundTitle": "Upsy",
+    "nothingToSee": "Nothing to see here..",
+    "searchBy": "Search By",
+    "write": "Type something"
   },
   "buildTeam": {
-    "lowBudget": "Sorry mate you cannot afford anything with that"
+    "budgetTooLowTitle": "Oh no",
+    "budgetTooLowContent": "Sorry mate you can't afford anything with that!",
+    "formTitle": "Create your dream team",
+    "resultTitle": "Here is what you can afford with {{budget}}",
+    "start": "Start",
+    "write": "Tell us your budget"
   }
 }

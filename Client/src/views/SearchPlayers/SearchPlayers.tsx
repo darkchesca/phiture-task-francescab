@@ -39,17 +39,10 @@ export const SearchPlayers: React.FC = () => {
 
     function onSubmitSearch(event: any) {
         setLoading(true);
-        const form = event.currentTarget;
-        //todo add validation: min characters 3
-        /*if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }*/
         event.preventDefault();
+
         const by = (searchBy as any).current.value;
         const tx = (inputValue as any).current.value;
-        console.log(by);
-        console.log(tx);
 
         //todo complete api
         try {
