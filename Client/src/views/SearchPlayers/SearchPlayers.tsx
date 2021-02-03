@@ -61,11 +61,10 @@ export const SearchPlayers: React.FC = () => {
     return (
         <div className="search-players-view">
             <div className="search-players-view_form">
-                <div className="search-players-view_form-title">{t('searchPlayers.formTitle')}</div>
+                <div className="search-players-view_form-title"><h4>{t('searchPlayers.formTitle')}</h4></div>
                 <Form onSubmit={onSubmitSearch}>
                     <Form.Row className="align-items-center">
                         <Col xs="auto">
-                            <Form.Label htmlFor="inlineFormInput" srOnly>{t('searchPlayers.searchBy')}</Form.Label>
                             <Form.Control
                                 ref={searchBy}
                                 as="select"
@@ -76,12 +75,11 @@ export const SearchPlayers: React.FC = () => {
                             </Form.Control>
                         </Col>
                         <Col xs="auto">
-                            <Form.Label htmlFor="inlineFormInput" srOnly>{t('searchPlayers.type')}</Form.Label>
                             <Form.Control
                                 ref={inputValue}
                                 type="text"
                                 minLength={3}
-                                placeholder={t('searchPlayers.type')}
+                                placeholder={t('searchPlayers.write')}
                                 required={true}
                                 className="mb-2"/>
                         </Col>

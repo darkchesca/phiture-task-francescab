@@ -12,7 +12,7 @@ export const NavbarCustom: React.FC = () => {
         <div className="navbar-container">
             <Router>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="#"><img
+                    <Navbar.Brand href="/"><img
                         src={logo}
                         width="30"
                         height="30"

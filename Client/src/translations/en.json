@@ -3,13 +3,13 @@
     "title": "Phi-fa 19"
   },
   "searchPlayers": {
-    "type": "Type something",
+    "write": "Type something",
     "find": "Find",
     "searchBy": "Search By",
     "name": "Name",
     "nationality": "Nationality",
     "club": "Club",
-    "formTitle": "Search players..",
+    "formTitle": "Search players by..",
     "errorTitle": "Error",
     "errorContent": "There was a problem with the search",
     "notFoundTitle": "Upsy",
