@@ -11,6 +11,10 @@
   background: transparent;
 }
 
+body {
+  background: map_get($gray-colors, creamy-white);
+}
+
 .app-header {
   @include flex-center();
   font-size: x-large;
@@ -23,7 +27,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  //background: map_get($green-colors, celadon);
 
   .search-players-container {
     padding: 20px;
