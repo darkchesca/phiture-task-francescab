@@ -3,6 +3,8 @@ import {useTranslation} from "react-i18next";
 //bootstrap
 import {Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/cjs/Container";
+import Row from "react-bootstrap/cjs/Row";
 //components
 import {LoadingModal} from "../../components/LoadingModal/LoadingModal";
 import {ErrorModal} from "../../components/ErrorModal/ErrorModal";
@@ -88,41 +90,51 @@ export const BuildTeam: React.FC = () => {
                         : team !== {} // team not empty
                             ? <div className="build-team-view_grid-result">
                                 <h5>{t('buildTeam.resultTitle', {budget: budget})}</h5>
-                                <ul>
-                                    <li>
-                                        goalkeeper
-                                    </li>
-                                    <li>
-                                        fullback1
-                                    </li>
-                                    <li>
-                                        fullback2
-                                    </li>
-                                    <li>
-                                        halfback1
-                                    </li>
-                                    <li>
-                                        halfback2
-                                    </li>
-                                    <li>
-                                        halfback3
-                                    </li>
-                                    <li>
-                                        forward1
-                                    </li>
-                                    <li>
-                                        forward2
-                                    </li>
-                                    <li>
-                                        forward3
-                                    </li>
-                                    <li>
-                                        forward4
-                                    </li>
-                                    <li>
-                                        forward5
-                                    </li>
-                                </ul>
+                                <Container>
+                                    <Row className="justify-content-md-center">
+                                        <Col>
+                                            goalkeeper
+                                        </Col>
+                                    </Row>
+
+                                    {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+                                    <Row className="justify-content-md-center">
+                                        <Col>
+                                            fullback1
+                                        </Col>
+                                        <Col>
+                                            fullback2
+                                        </Col>
+                                    </Row>
+                                    <Row className="justify-content-md-center">
+                                        <Col>
+                                            halfback1
+                                        </Col>
+                                        <Col>
+                                            halfback2
+                                        </Col>
+                                        <Col>
+                                            halfback3
+                                        </Col>
+                                    </Row>
+                                    <Row className="justify-content-md-center">
+                                        <Col>
+                                            forward1
+                                        </Col>
+                                        <Col>
+                                            forward2
+                                        </Col>
+                                        <Col>
+                                            forward3
+                                        </Col>
+                                        <Col>
+                                            forward4
+                                        </Col>
+                                        <Col>
+                                            forward5
+                                        </Col>
+                                    </Row>
+                                </Container>
                             </div>
                             : <span>{t('buildTeam.nothingToSee')}</span>
                 }
