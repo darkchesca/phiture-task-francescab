@@ -10,8 +10,8 @@ import Button from "react-bootstrap/Button";
 import './SearchPlayers.scss';
 import './../../styles/style.scss';
 import Table from "react-bootstrap/cjs/Table";
-import {mockPlayersList} from "../../utils/utils";
-import {Player} from "../../utils/types";
+import {mockPlayersList} from "../../utils/mocks";
+import {Player} from "../../utils/interfaces/Player";
 import logo from './../../logo.png';
 
 const tableHeader = [
