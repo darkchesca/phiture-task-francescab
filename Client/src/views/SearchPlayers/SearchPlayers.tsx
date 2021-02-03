@@ -1,12 +1,12 @@
 import React, {useRef, useState} from "react";
 import {useTranslation} from "react-i18next";
-
+//custom components
 import {LoadingModal} from './../../components/LoadingModal/LoadingModal';
 import {ErrorModal} from "../../components/ErrorModal/ErrorModal";
-
+//bootstrap components
 import {Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
+//other imports
 import './SearchPlayers.scss';
 import './../../styles/style.scss';
 
@@ -23,7 +23,7 @@ export const SearchPlayers: React.FC = () => {
 
 
     function onSubmitSearch(event: any) {
-        // setLoading(true);
+        setLoading(true);
         const form = event.currentTarget;
         //todo add validation: min characters 3
         /*if (form.checkValidity() === false) {
@@ -37,22 +37,25 @@ export const SearchPlayers: React.FC = () => {
         console.log(tx);
 
         //add api here
-        //seLoading(false)
         try {
             const resp: [] = []; //await
-            if (!resp.length) {
+            if (!resp.length) { // if resp is empty -> show modal with no result content
                 setModalTitle(t('searchPlayers.notFoundTitle'));
                 setModalContent(t('searchPlayers.notFoundContent'));
+                setLoading(false);
                 setError(true);
-            } else {
+            } else { // if resp not empty built table
                 setPlayers(resp);
+                setLoading(false);
             }
 
-        } catch (e) {
+        } catch (e) { // if error -> show modal with error content
             setModalTitle(t('searchPlayers.errorTitle'));
             setModalContent(t('searchPlayers.errorBody'));
             setError(true);
+            setLoading(false);
         }
+        //todo empty input after on submit
     }
 
     return (
@@ -77,7 +80,9 @@ export const SearchPlayers: React.FC = () => {
                             <Form.Control
                                 ref={inputValue}
                                 type="text"
+                                minLength={3}
                                 placeholder={t('searchPlayers.type')}
+                                required={true}
                                 className="mb-2"/>
                         </Col>
                         <Col xs="auto">
