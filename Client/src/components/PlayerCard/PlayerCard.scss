@@ -1,0 +1,10 @@
+.player-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .player-card_photo {
+    width: 30px;
+    height: 30px;
+  }
+}

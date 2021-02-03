@@ -3,14 +3,13 @@ import {useTranslation} from "react-i18next";
 //bootstrap
 import {Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/cjs/Container";
-import Row from "react-bootstrap/cjs/Row";
 //components
 import {LoadingModal} from "../../components/LoadingModal/LoadingModal";
 import {ErrorModal} from "../../components/ErrorModal/ErrorModal";
 //other
 import './BuildTeam.scss';
 import './../../styles/style.scss';
+import {PlayerCard} from "../../components/PlayerCard/PlayerCard";
 
 export const BuildTeam: React.FC = () => {
     const {t} = useTranslation();
@@ -90,51 +89,27 @@ export const BuildTeam: React.FC = () => {
                         : team !== {} // team not empty
                             ? <div className="build-team-view_grid-result">
                                 <h5>{t('buildTeam.resultTitle', {budget: budget})}</h5>
-                                <Container>
-                                    <Row className="justify-content-md-center">
-                                        <Col>
-                                            goalkeeper
-                                        </Col>
-                                    </Row>
-
-                                    {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
-                                    <Row className="justify-content-md-center">
-                                        <Col>
-                                            fullback1
-                                        </Col>
-                                        <Col>
-                                            fullback2
-                                        </Col>
-                                    </Row>
-                                    <Row className="justify-content-md-center">
-                                        <Col>
-                                            halfback1
-                                        </Col>
-                                        <Col>
-                                            halfback2
-                                        </Col>
-                                        <Col>
-                                            halfback3
-                                        </Col>
-                                    </Row>
-                                    <Row className="justify-content-md-center">
-                                        <Col>
-                                            forward1
-                                        </Col>
-                                        <Col>
-                                            forward2
-                                        </Col>
-                                        <Col>
-                                            forward3
-                                        </Col>
-                                        <Col>
-                                            forward4
-                                        </Col>
-                                        <Col>
-                                            forward5
-                                        </Col>
-                                    </Row>
-                                </Container>
+                                <div className="build-team-view_grid-result-team">
+                                    <div className="players-row">
+                                        <PlayerCard name="Name" position="Keeper"/>
+                                    </div>
+                                    <div className="players-row">
+                                        <PlayerCard name="Name" position="Fullback1"/>
+                                        <PlayerCard name="Name" position="Fullback2"/>
+                                    </div>
+                                    <div className="players-row">
+                                        <PlayerCard name="Name" position="Halfback1"/>
+                                        <PlayerCard name="Name" position="Halfback2"/>
+                                        <PlayerCard name="Name" position="Halfback3"/>
+                                    </div>
+                                    <div className="players-row">
+                                        <PlayerCard name="Name" position="Forward1"/>
+                                        <PlayerCard name="Name" position="Forward2"/>
+                                        <PlayerCard name="Name" position="Forward3"/>
+                                        <PlayerCard name="Name" position="Forward4"/>
+                                        <PlayerCard name="Name" position="Forward5"/>
+                                    </div>
+                                </div>
                             </div>
                             : <span>{t('buildTeam.nothingToSee')}</span>
                 }
