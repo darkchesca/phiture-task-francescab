@@ -95,23 +95,34 @@ export const BuildTeam: React.FC = () => {
                                 <h5>{t('buildTeam.resultTitle', {budget: budget})}</h5>
                                 <div className="build-team-view_grid-result-team">
                                     <div className="players-row">
-                                        <PlayerCard name={team.goalKeeper["Name"]} position="Keeper"/>
+                                        <PlayerCard name={team.goalKeeper["Name"]} position="Keeper"
+                                                    price={team.goalKeeper["Value"]}/>
                                     </div>
                                     <div className="players-row">
-                                        <PlayerCard name={team.fullback1["Name"]} position="Fullback 1"/>
-                                        <PlayerCard name={team.fullback2["Name"]} position="Fullback 2"/>
+                                        <PlayerCard name={team.fullback1["Name"]} position="Fullback 1"
+                                                    price={team.fullback1["Value"]}/>
+                                        <PlayerCard name={team.fullback2["Name"]} position="Fullback 2"
+                                                    price={team.fullback2["Value"]}/>
                                     </div>
                                     <div className="players-row">
-                                        <PlayerCard name={team.halfback1["Name"]} position="Halfback 1"/>
-                                        <PlayerCard name={team.halfback2["Name"]} position="Halfback 2"/>
-                                        <PlayerCard name={team.halfback3["Name"]} position="Halfback 3"/>
+                                        <PlayerCard name={team.halfback1["Name"]} position="Halfback 1"
+                                                    price={team.halfback1["Value"]}/>
+                                        <PlayerCard name={team.halfback2["Name"]} position="Halfback 2"
+                                                    price={team.halfback2["Value"]}/>
+                                        <PlayerCard name={team.halfback3["Name"]} position="Halfback 3"
+                                                    price={team.halfback3["Value"]}/>
                                     </div>
                                     <div className="players-row">
-                                        <PlayerCard name={team.forward1["Name"]} position="Forward 1"/>
-                                        <PlayerCard name={team.forward2["Name"]} position="Forward 2"/>
-                                        <PlayerCard name={team.forward3["Name"]} position="Forward 3"/>
-                                        <PlayerCard name={team.forward4["Name"]} position="Forward 4"/>
-                                        <PlayerCard name={team.forward5["Name"]} position="Forward 5"/>
+                                        <PlayerCard name={team.forward1["Name"]} position="Forward 1"
+                                                    price={team.forward1["Value"]}/>
+                                        <PlayerCard name={team.forward2["Name"]} position="Forward 2"
+                                                    price={team.forward2["Value"]}/>
+                                        <PlayerCard name={team.forward3["Name"]} position="Forward 3"
+                                                    price={team.forward3["Value"]}/>
+                                        <PlayerCard name={team.forward4["Name"]} position="Forward 4"
+                                                    price={team.forward4["Value"]}/>
+                                        <PlayerCard name={team.forward5["Name"]} position="Forward 5"
+                                                    price={team.forward5["Value"]}/>
                                     </div>
                                 </div>
                             </div>

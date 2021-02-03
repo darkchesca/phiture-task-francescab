@@ -5,9 +5,10 @@ import logo from './../../logo.png';
 interface Props {
     name: string;
     position: string;
+    price: string;
 }
 
-export const PlayerCard: React.FC<Props> = ({name, position}) => {
+export const PlayerCard: React.FC<Props> = ({name, position, price}) => {
 
     return (
         <div className="player-card">
@@ -18,6 +19,7 @@ export const PlayerCard: React.FC<Props> = ({name, position}) => {
             /></div>
             <span>{name}</span>
             <span>{position}</span>
+            <span>{price}</span>
         </div>
     )
 }

@@ -23,8 +23,8 @@
     "errorBody": "There was an issue getting the data",
     "formTitle": "Create your dream team",
     "nothingToSee": "Nothing here yet",
-    "resultTitle": "Here is what you can afford with $ {{budget}}",
+    "resultTitle": "Here is what you can afford with € {{budget}}",
     "start": "Start",
-    "write": "Tell us your $ budget"
+    "write": "Tell us your € budget"
   }
 }

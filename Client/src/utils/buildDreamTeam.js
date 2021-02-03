@@ -1,25 +1,24 @@
-const teamRoles = {
-    goalKeeper: "ID",
-
-    fullback1: "ID",
-    fullback2: "ID",
-
-    halfback1: "ID",
-    halfback2: "ID",
-    halfback3: "ID",
-
-    forward1: "ID",
-    forward2: "ID",
-    forward3: "ID",
-    forward4: "ID",
-    forward5: "ID",
+const getNumberFromString = (string) => {
+    return parseFloat(string) * 100000;
 }
+export const buildDreamTeam = (budget, allPlayers) => {
+    const teamRoles = {
+        goalKeeper: {},
 
-const buildDreamTeam = (budget, allPlayers) => {
+        fullback1: {},
+        fullback2: {},
 
-    if (!budget || budget <= 10000 || typeof budget !== 'Number') {
-        return //show modal err budget too low, you need at least $ xx
+        halfback1: {},
+        halfback2: {},
+        halfback3: {},
+
+        forward1: {},
+        forward2: {},
+        forward3: {},
+        forward4: {},
+        forward5: {},
     }
+
     //calculate cheapest team and return if budget < cheapest team ?
 
     //filter players in arrays by role [keep ID, price, score, position]
