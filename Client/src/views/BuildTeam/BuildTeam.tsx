@@ -44,7 +44,7 @@ export const BuildTeam: React.FC = () => {
 
         //todo getAllPlayers api
         try {
-            const resp: [] = []; //await
+            const resp: [] = []; //await getPlayers() no filters to getAll ?
             setLoading(false);
 
         } catch (e) { // if error -> show modal with error content

@@ -9,15 +9,15 @@ export async function getHello() {
     }
 }
 
-/*export async function getRecommendations(text: any) {
+export async function getPlayers(filters: any) { //todo if !filters -> getAll ? or do 2 different apis?
     const options: any = {
-        method: 'POST',
+        method: 'GET',
         url: 'http://',
         headers: {
             'content-type': 'application/json',
             'subscription-key': 'key'
         },
-        data: text,
+        params: filters, //todo check name of attribute
         json: true
     };
 
@@ -27,4 +27,4 @@ export async function getHello() {
     } catch (e) {
         console.log(e)
     }
-}*/
+}

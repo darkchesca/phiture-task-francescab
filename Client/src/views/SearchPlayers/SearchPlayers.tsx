@@ -6,10 +6,10 @@ import {ErrorModal} from "../../components/ErrorModal/ErrorModal";
 //bootstrap components
 import {Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/cjs/Table";
 //other imports
 import './SearchPlayers.scss';
 import './../../styles/style.scss';
-import Table from "react-bootstrap/cjs/Table";
 import {mockPlayersList} from "../../utils/mocks";
 import {Player} from "../../utils/interfaces/Player";
 import logo from './../../logo.png';
@@ -37,16 +37,19 @@ export const SearchPlayers: React.FC = () => {
     let inputValue = useRef(null);
 
 
+    /*async*/
     function onSubmitSearch(event: any) {
         setLoading(true);
         event.preventDefault();
 
-        const by = (searchBy as any).current.value;
-        const tx = (inputValue as any).current.value;
+        const filters = {
+            searchBy: (searchBy as any).current.value,
+            text: (inputValue as any).current.value
+        }
 
         //todo complete api
         try {
-            const resp: [] = []; //await
+            const resp: [] = []; //await getPlayers(filters)
             /*if (!resp.length) { // if resp is empty -> show modal with no result content
                 setModalTitle(t('searchPlayers.notFoundTitle'));
                 setModalContent(t('searchPlayers.notFoundContent'));
