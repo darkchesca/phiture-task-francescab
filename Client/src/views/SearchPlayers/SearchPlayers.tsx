@@ -10,9 +10,10 @@ import Table from "react-bootstrap/cjs/Table";
 //other imports
 import './SearchPlayers.scss';
 import './../../styles/style.scss';
-import {mockPlayersList} from "../../utils/mocks";
 import {Player} from "../../utils/interfaces/Player";
 import logo from './../../logo.png';
+
+const allPlayersJson = require('../../fifadb.json');
 
 const tableHeader = [
     "Photo",
@@ -49,30 +50,25 @@ export const SearchPlayers: React.FC = () => {
 
         //todo complete api
         try {
-            const resp: [] = []; //await getPlayers(filters)
-            /*if (!resp.length) { // if resp is empty -> show modal with no result content
+            const resp = allPlayersJson.data.filter((p: any) => { //await getPlayers(filters)
+                return p[filters.searchBy].toLowerCase() === filters.text.toLowerCase();
+            });
+
+            if (!resp.length) { // if resp is empty -> show modal with no result content
                 setModalTitle(t('searchPlayers.notFoundTitle'));
                 setModalContent(t('searchPlayers.notFoundContent'));
                 setLoading(false);
                 setError(true);
             } else { // if resp not empty built table
-                //setPlayers(resp);
-                console.log(players)
-                setPlayers(mockPlayersList.data); //
+                setPlayers(resp);
                 setLoading(false);
-                console.log(players)
-            }*/
-
-            setPlayers(mockPlayersList.data);
-            setLoading(false);
-
+            }
         } catch (e) { // if error -> show modal with error content
             setModalTitle(t('searchPlayers.errorTitle'));
             setModalContent(t('searchPlayers.errorBody'));
             setError(true);
             setLoading(false);
         }
-        //todo empty input after on submit
     }
 
     return (
@@ -129,7 +125,7 @@ export const SearchPlayers: React.FC = () => {
                                 </thead>
                                 <tbody>
                                 {
-                                    mockPlayersList.data.map(p => {
+                                    players.map(p => {
                                         return <tr key={p.ID}>
                                             <td>
                                                 <img
