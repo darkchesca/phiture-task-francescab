@@ -7,6 +7,7 @@
     "find": "Find",
     "errorContent": "There was a problem with the search",
     "errorTitle": "Error",
+    "errorBody": "We're having some issues",
     "formTitle": "Search players by..",
     "name": "Name",
     "nationality": "Nationality",
