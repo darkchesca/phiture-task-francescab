@@ -12,6 +12,7 @@ import './BuildTeam.scss';
 import './../../styles/style.scss';
 import {mockTeam} from "../../utils/mocks";
 import {Team} from "../../utils/interfaces/Team";
+// import {buildDreamTeam} from"../../utils/buildDreamTeam.js";
 
 export const BuildTeam: React.FC = () => {
     const {t} = useTranslation();
@@ -47,6 +48,10 @@ export const BuildTeam: React.FC = () => {
             const resp: [] = []; //await getPlayers() no filters to getAll ?
             setLoading(false);
 
+            //todo finish method and add wworker
+            //buildDreamTeam(budget);
+            setTeam(mockTeam);
+
         } catch (e) { // if error -> show modal with error content
             setModalTitle(t('buildTeam.errorTitle'));
             setModalContent(t('buildTeam.errorBody'));
@@ -54,8 +59,7 @@ export const BuildTeam: React.FC = () => {
             setLoading(false);
         }
 
-        //todo replace with real data
-        setTeam(mockTeam);
+
     }
 
     return (

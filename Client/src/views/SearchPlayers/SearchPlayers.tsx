@@ -12,8 +12,8 @@ import './SearchPlayers.scss';
 import './../../styles/style.scss';
 import {Player} from "../../utils/interfaces/Player";
 import logo from './../../logo.png';
-
-const allPlayersJson = require('../../fifadb.json');
+import {mockPlayersList} from './../../utils/mocks';
+//const allPlayersJson = require('../../fifadb.json');
 
 const tableHeader = [
     "Photo",
@@ -50,7 +50,7 @@ export const SearchPlayers: React.FC = () => {
 
         //todo complete api
         try {
-            const resp = allPlayersJson.data.filter((p: any) => { //await getPlayers(filters)
+            const resp = /*allPlayersJson*/ mockPlayersList.data.filter((p: any) => { //await getPlayers(filters) -> todo replace with backend filters
                 return p[filters.searchBy].toLowerCase() === filters.text.toLowerCase();
             });
 
