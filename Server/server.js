@@ -19,6 +19,7 @@ app.use(function (req, res, next) { // just to simplify things
 require("./app/routes/player.routes.js")(app);
 
 // listen for requests at set port (5000) -> http://localhost:5000
-app.listen(5000, () => {
-    console.log("Server is running on port 5000.");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
 });
