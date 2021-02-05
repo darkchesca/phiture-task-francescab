@@ -15,15 +15,15 @@ exports.findAll = (req, res) => {
 
 // Find some Players by params
 exports.findSome = (req, res) => {
-    Player.findByKeyValue(req.params.params, (err, data) => {
+    Player.findByKeyValue(req.query, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `Coul not find any players with ${req.params.key} ${req.params.value}.`
+                    message: `Coul not find any players with ${req.query.searchBy} ${req.query.text}.`
                 });
             } else {
                 res.status(500).send({
-                    message: `Error retrieving players  with with ${req.params.key} ${req.params.value}.`
+                    message: `Error retrieving players  with with ${req.query.searchBy} ${req.query.text}.`
                 });
             }
         } else res.send(data);

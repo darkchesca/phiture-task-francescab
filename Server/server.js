@@ -9,9 +9,10 @@ app.use(bodyParser.json());
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
-// simple route
-app.get("/", (req, res) => {
-    res.json({message: "This is a test.."});
+app.use(function (req, res, next) { // just to simplify things
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 // routes
