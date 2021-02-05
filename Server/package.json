@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www",
-    "server": "node ./main/routes.js"
+    "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
