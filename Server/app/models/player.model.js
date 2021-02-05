@@ -16,7 +16,7 @@ const Player = function (player) {
 
 
 Player.findByKeyValue = (query, result) => {
-    sql.query(`SELECT * FROM myfifatable WHERE ${query.searchBy} = "${query.text}"`, (err, res) => {
+    sql.query(`SELECT Original_Index, ID, Name, Age, Photo, Nationality, Overall, Club, Position, Value FROM myfifatable WHERE ${query.searchBy} = "${query.text}"`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -35,7 +35,7 @@ Player.findByKeyValue = (query, result) => {
 };
 
 Player.getAll = result => {
-    sql.query(`SELECT * FROM myfifatable`, (err, res) => {
+    sql.query(`SELECT Original_Index, ID, Name, Age, Photo, Nationality, Overall, Club, Position, Value FROM myfifatable`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
