@@ -12,8 +12,8 @@ import './SearchPlayers.scss';
 import './../../styles/style.scss';
 import {Player} from "../../utils/interfaces/Player";
 import logo from './../../logo.png';
-import {mockPlayersList} from './../../utils/mocks';
-//const allPlayersJson = require('../../fifadb.json');
+//import {mockPlayersList} from './../../utils/mocks';
+import {getFilteredPlayers} from "../../api/api";
 
 const tableHeader = [
     "Photo",
@@ -25,9 +25,9 @@ const tableHeader = [
     "Value",
 ]
 
-
 export const SearchPlayers: React.FC = () => {
     const {t} = useTranslation();
+
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
     let [players, setPlayers] = useState<Array<Player>>();
@@ -38,8 +38,7 @@ export const SearchPlayers: React.FC = () => {
     let inputValue = useRef(null);
 
 
-    /*async*/
-    function onSubmitSearch(event: any) {
+    async function onSubmitSearch(event: any) {
         setLoading(true);
         event.preventDefault();
 
@@ -48,21 +47,11 @@ export const SearchPlayers: React.FC = () => {
             text: (inputValue as any).current.value
         }
 
-        //todo complete api
         try {
-            const resp = /*allPlayersJson*/ mockPlayersList.data.filter((p: any) => { //await getPlayers(filters) -> todo replace with backend filters
-                return p[filters.searchBy].toLowerCase() === filters.text.toLowerCase();
-            });
+            const resp = await getFilteredPlayers(filters);
+            setPlayers(resp);
+            setLoading(false);
 
-            if (!resp.length) { // if resp is empty -> show modal with no result content
-                setModalTitle(t('searchPlayers.notFoundTitle'));
-                setModalContent(t('searchPlayers.notFoundContent'));
-                setLoading(false);
-                setError(true);
-            } else { // if resp not empty built table
-                setPlayers(resp);
-                setLoading(false);
-            }
         } catch (e) { // if error -> show modal with error content
             setModalTitle(t('searchPlayers.errorTitle'));
             setModalContent(t('searchPlayers.errorBody'));

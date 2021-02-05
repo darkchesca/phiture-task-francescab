@@ -1,23 +1,32 @@
 import axios from 'axios';
 
-export async function getHello() {
+export async function getFilteredPlayers(filters: any) {
+    const options: any = {
+        method: 'GET',
+        url: 'http://localhost:5000/filteredPlayers',
+        headers: {
+            'content-type': 'application/json'
+        },
+        params: filters,
+        json: true
+    };
+
     try {
-        const resp = await axios.get('/hello') // url-route in the server we want to request;
+        const resp = await axios.request(options);
         return resp.data;
     } catch (e) {
         console.log(e)
     }
 }
 
-export async function getPlayers(filters: any) { //todo if !filters -> getAll ? or do 2 different apis?
+
+export async function getAllPlayers() {
     const options: any = {
         method: 'GET',
-        url: 'http://',
+        url: 'http://localhost:5000/allplayers',
         headers: {
-            'content-type': 'application/json',
-            'subscription-key': 'key'
+            'content-type': 'application/json'
         },
-        params: filters, //todo check name of attribute
         json: true
     };
 
