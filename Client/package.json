@@ -10,6 +10,7 @@
     "@types/node": "^12.19.15",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
+    "@types/react-router": "^5.1.11",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "i18next": "^19.8.7",
@@ -47,7 +48,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://phiture-task-francescab.herokuapp.com",
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7"
   }
