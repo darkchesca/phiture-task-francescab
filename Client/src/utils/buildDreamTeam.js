@@ -1,11 +1,10 @@
 const getNumberFromString = (string) => {
-    return parseFloat(string) * 100000;
+    return parseFloat(string) * 100_000;
 }
-const allPlayersJson = require('../fifadb.json');
 
 export const buildDreamTeam = (budget, allPlayers) => {
     console.log(budget);
-    console.log(allPlayersJson.data);
+    console.log(allPlayers);
     const teamRoles = {
         goalKeeper: {},
 
@@ -67,7 +66,7 @@ export const buildDreamTeam = (budget, allPlayers) => {
                 console.log("aaaa");
         }
     }*/
-    for (let p of allPlayersJson.data) {
+    for (let p of allPlayers) {
         console.log(p);
         if (p["Position"] === 'GK') {
             gk = [...gk, ...p]

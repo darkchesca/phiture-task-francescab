@@ -111,7 +111,7 @@ export const SearchPlayers: React.FC = () => {
                             content={modalContent}
                             showModal={error}
                             onHide={() => setError(false)}>Error Modal</ErrorModal>
-                        : players != undefined && players.length
+                        : players !== undefined && players.length
                             ? <Table responsive={true} striped bordered hover variant="dark">
                                 <thead>
                                 <tr>

@@ -12,7 +12,7 @@ import './BuildTeam.scss';
 import './../../styles/style.scss';
 import {mockTeam} from "../../utils/mocks";
 import {Team} from "../../utils/interfaces/Team";
-// import {buildDreamTeam} from"../../utils/buildDreamTeam.js";
+import {getAllPlayers} from "../../api/api";
 
 export const BuildTeam: React.FC = () => {
     const {t} = useTranslation();
@@ -25,32 +25,26 @@ export const BuildTeam: React.FC = () => {
 
     let inputBudget = useRef(null);
 
-    /*async*/
-    function onSubmitBudget(event: any) {
+    async function onSubmitBudget(event: any) {
 
         const budget = (inputBudget as any).current.value;
         event.preventDefault();
 
-        if (budget < 10_000 /*| other things*/) {
+        if (budget < 70_000_000) {
             setModalTitle(t('buildTeam.budgetTooLowTitle'));
             setModalContent(t('buildTeam.budgetTooLowContent'));
             setError(true);
             return
         }
         setBudget(budget);
-        //else ->
-        //setLoading(true);
-        //getAllPlayers api
-        //execute buildDreamTeam
 
-        //todo getAllPlayers api
+        setLoading(true);
         try {
-            const resp: [] = []; //await getPlayers() no filters to getAll ?
-            setLoading(false);
-
-            //todo finish method and add wworker
-            //buildDreamTeam(budget);
+            const resp = await getAllPlayers();
+            console.log(resp);
+            // buildDreamTeam(budget, resp); //todo finish method and add wworker
             setTeam(mockTeam);
+            setLoading(false);
 
         } catch (e) { // if error -> show modal with error content
             setModalTitle(t('buildTeam.errorTitle'));
