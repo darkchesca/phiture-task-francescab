@@ -51,7 +51,15 @@ export const SearchPlayers: React.FC = () => {
             const resp = await getFilteredPlayers(filters);
             setPlayers(resp);
             setLoading(false);
-
+            if (!resp) { // if resp is empty -> show modal with no result content
+                setModalTitle(t('searchPlayers.notFoundTitle'));
+                setModalContent(t('searchPlayers.notFoundContent'));
+                setLoading(false);
+                setError(true);
+            } else { // if resp not empty built table
+                setPlayers(resp);
+                setLoading(false);
+            }
         } catch (e) { // if error -> show modal with error content
             setModalTitle(t('searchPlayers.errorTitle'));
             setModalContent(t('searchPlayers.errorBody'));

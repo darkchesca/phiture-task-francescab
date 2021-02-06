@@ -1,9 +1,10 @@
 import axios from 'axios';
 
+const baseurl = "https://phiture-task-francescab.herokuapp.com";
 export async function getFilteredPlayers(filters: any) {
     const options: any = {
         method: 'GET',
-        url: 'http://localhost:5000/filteredPlayers',
+        url: `${baseurl}/filteredPlayers`,
         headers: {
             'content-type': 'application/json'
         },
@@ -23,7 +24,7 @@ export async function getFilteredPlayers(filters: any) {
 export async function getAllPlayers() {
     const options: any = {
         method: 'GET',
-        url: 'http://localhost:5000/allplayers',
+        url: `${baseurl}/allplayers`,
         headers: {
             'content-type': 'application/json'
         },
