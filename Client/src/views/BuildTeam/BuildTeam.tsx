@@ -90,7 +90,7 @@ export const BuildTeam: React.FC = () => {
                             onHide={() => setError(false)}>Error Modal</ErrorModal>
                         : team // team not empty
                             ? <div className="build-team-view_grid-result">
-                                <h5>{t('buildTeam.resultTitle', {budget: budget})}</h5>
+                                <h5>{t('buildTeam.resultTitle', {budget: new Intl.NumberFormat().format(budget)})}</h5>
                                 <div className="build-team-view_grid-result-team">
                                     <div className="players-row">
                                         <PlayerCard name={team.goalKeeper["Name"]} position="Keeper"
