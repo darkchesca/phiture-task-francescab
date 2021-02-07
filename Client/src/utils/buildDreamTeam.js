@@ -2,10 +2,14 @@ const getNumberFromString = (string) => {
     return parseFloat(string) * 100_000;
 }
 
+const orderPlayersByRatePrice = (a, b) => {
+
+}
+
 export const buildDreamTeam = (budget, allPlayers) => {
-    console.log(budget);
-    console.log(allPlayers);
-    const teamRoles = {
+
+    //final team
+    const finalTeam = {
         goalKeeper: {},
 
         fullback1: {},
@@ -22,22 +26,23 @@ export const buildDreamTeam = (budget, allPlayers) => {
         forward5: {},
     }
 
-    let gk = [];
-    let fb = [];
-    let hb = [];
-    let fw = [];
+    //role arrays
+    let allGk = [];
+    let allFb = [];
+    let allHb = [];
+    let allFw = [];
 
-    /*for(let p of allPlayersJson.data){
-        console.log(p["Position"])
+    //divide players by roles
+    for (let p of allPlayers) {
         switch (p["Position"]) {
             case 'GK':
-                gk = [...gk, ...p];
+                allGk = [...allGk, ...p];
                 break;
             case 'LB':
             case 'RB':
             case 'LWB':
             case 'RWB':
-                fb = [...fb, ...p];
+                allFb = [...allFb, ...p];
                 break;
             case 'CB':
             case 'LCB':
@@ -50,7 +55,7 @@ export const buildDreamTeam = (budget, allPlayers) => {
             case 'RCM':
             case 'LM':
             case 'RM':
-                hb = [...hb, ...p];
+                allHb = [...allHb, ...p];
                 break;
             case 'CAM':
             case 'LAM':
@@ -60,22 +65,37 @@ export const buildDreamTeam = (budget, allPlayers) => {
             case 'CF':
             case 'LCF':
             case 'RCF':
-                fw = [...fw, ...p];
+                allFw = [...allFw, ...p];
                 break;
             default:
-                console.log("aaaa");
-        }
-    }*/
-    for (let p of allPlayers) {
-        console.log(p);
-        if (p["Position"] === 'GK') {
-            gk = [...gk, ...p]
         }
     }
-    console.log(gk);
-    console.log(fb);
-    console.log(hb);
-    console.log(fw);
+
+    /*
+    -> calculate best-cheapest team:
+    -> divide players in arrays by role
+    -> each array: ORDER BY overall DESC, value ASC (could do this directly from sql query actually)
+    -> calculate totalTeamPrice = allGk[0].value + allFb[0].value + allFb[1].value etc.
+    if budget >= totalTeamPrice -> return finalTeam
+    ---> goalKeeper: {player: allGk[0], index: 0}
+    ---> fullback1: {player: allFb[0], index: 0}
+    ---> fullback2: {player : allFb[1], index: 1}
+    ---> halfback1: {player: allHb[0], index 0}
+    ---> halfback2: {player: allHb[1], index: 1}
+    ---> halfback3: {player: allHb[2], index: 2}
+    ---> forward1: {player: allFw[0], index: 0}
+    ---> forward1: {player: allFw[1], index: 1}
+    ---> forward1: {player: allFw[2], index: 2}
+    ---> forward1: {player: allFw[3], index: 3}
+    ---> forward1: {player: allFw[4], index: 4}
+    else
+    -> get most expensive player from finalTeam
+    -> loop his original array to find player with highest overall and cheapest price after him
+    -> calculate price of finalTeam
+    if budget >= totalTeamPrice -> return finalTeam
+    -> recurrent function
+
+    */
 
 
     //calculate cheapest team and return if budget < cheapest team ?
