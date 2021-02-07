@@ -16,7 +16,7 @@ const Player = function (player) {
 
 
 Player.findByKeyValue = (query, result) => {
-    sql.query(`SELECT Original_Index, ID, Name, Age, Photo, Nationality, Overall, Club, Position, Value FROM myfifatable WHERE ${query.searchBy} = "${query.text}"`, (err, res) => {
+    sql.query(`SELECT Original_Index, ID, Name, Age, Photo, Nationality, Overall, Club, Position, Value FROM myfifatable WHERE ${query.searchBy} LIKE "%${query.text}%"`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
